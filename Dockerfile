@@ -39,12 +39,12 @@ FROM openliberty/open-liberty:20.0.0.9-kernel-java11-openj9-ubi
 #COPY target/liberty/wlp/usr/shared /opt/ol/wlp/usr/shared/
 #COPY target/liberty/wlp/usr/servers/defaultServer/lib /opt/ol/wlp/usr/servers/defaultServer/lib
 
-COPY --chown=1001:0 target/liberty/wlp/usr/servers/defaultServer/bootstrap.properties /config
-COPY --chown=1001:0 target/liberty/wlp/usr/servers/defaultServer/server.env /config
-COPY --chown=1001:0 target/liberty/wlp/usr/servers/defaultServer/configDropins/defaults/quick-start-security.xml /config/configDropins/defaults
-COPY --chown=1001:0 target/liberty/wlp/usr/servers/defaultServer/configDropins/defaults/system-test-vars.xml  /config/configDropins/defaults
-COPY --chown=1001:0 target/liberty/wlp/usr/servers/defaultServer/configDropins/overrides/liberty-plugin-variable-config.xml   /config/configDropins/overrides
-COPY --chown=1001:0 target/liberty/wlp/usr/servers/defaultServer/server.xml /config
+#COPY --chown=1001:0 target/liberty/wlp/usr/servers/defaultServer/server.env /config
+#COPY --chown=1001:0 target/liberty/wlp/usr/servers/defaultServer/configDropins/defaults/quick-start-security.xml /config/configDropins/defaults
+#COPY --chown=1001:0 target/liberty/wlp/usr/servers/defaultServer/configDropins/defaults/system-test-vars.xml  /config/configDropins/defaults
+COPY --chown=1001:0 target/liberty/wlp/usr/servers/defaultServer/configDropins/defaults /config/configDropins
+COPY --chown=1001:0 target/liberty/wlp/usr/servers/defaultServer/configDropins/overrides/liberty-plugin-variable-config.xml   /config/configDropins/overrides/liberty-plugin-variable-config.xml
+COPY --chown=1001:0 target/liberty/wlp/usr/servers/defaultServer/* /config/
 
 
 # 2d) Changes to the application binary

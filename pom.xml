@@ -32,7 +32,7 @@
         <!-- Workaround for https://github.com/OpenLiberty/ci.maven/issues/936 -->
         <liberty.env.lmp936>foo</liberty.env.lmp936>
         <liberty.defaultVar.lmp936>foo</liberty.defaultVar.lmp936>
-        <liberty.bootstrap.project.name>${project.artifactId}</liberty.bootstrap.project.name>
+        <liberty.defaultVar.project.name>${project.artifactId}</liberty.defaultVar.project.name>
     </properties>
 
     <groupId>dev.odo.java-openliberty.samples</groupId>
@@ -100,9 +100,6 @@
                 <version>${version.liberty-maven-plugin}</version>
                 <configuration>
                     <!-- Workaround for https://github.com/OpenLiberty/ci.maven/issues/949 -->
-                    <bootstrapProperties>
-                        <project.name>${project.artifactId}</project.name>
-                    </bootstrapProperties>
                     <!-- Needed to merge with generated keystore password -->
                     <mergeServerEnv>true</mergeServerEnv>
                     <!-- Extra time within container -->
