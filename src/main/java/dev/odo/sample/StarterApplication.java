@@ -14,12 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 *******************************************************************************/
 
-package dev.odo.starter;
+package dev.odo.sample;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-@ApplicationPath("/")
+@ApplicationPath("/api")
 public class StarterApplication extends Application {
 
 }
