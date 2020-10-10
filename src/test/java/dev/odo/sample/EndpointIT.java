@@ -36,7 +36,7 @@ public class EndpointIT {
     @RESTClient
     public static SampleResource appService;
 
-    private String expectedGreeting = "Hello! Welcome to Openliberty";
+    private String expectedGreeting = "Hello! Welcome to Open Liberty";
     
     @Test
     public void testAppResponse() {

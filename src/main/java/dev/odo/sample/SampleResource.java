@@ -23,6 +23,6 @@ public class SampleResource {
 
     @GET
     public String getRequest() {
-        return "Hello! Welcome to Openliberty";
+        return "Hello! Welcome to Open Liberty";
     }
 }
