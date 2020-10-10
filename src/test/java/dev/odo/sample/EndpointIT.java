@@ -34,11 +34,13 @@ public class EndpointIT {
     Logger logger = LoggerFactory.getLogger(EndpointIT.class);
     
     @RESTClient
-    public static StarterResource appService;
+    public static SampleResource appService;
+
+    private String expectedGreeting = "Hello! Welcome to Openliberty";
     
     @Test
     public void testAppResponse() {
         logger.info("In test method: testAppResponse");
-        assertEquals("Hello! Welcome to Openliberty", appService.getRequest());
+        assertEquals(expectedGreeting, appService.getRequest());
     }
 }

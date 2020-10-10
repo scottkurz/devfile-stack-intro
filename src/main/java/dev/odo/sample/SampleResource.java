@@ -15,26 +15,14 @@ limitations under the License.
 *******************************************************************************/
 package dev.odo.sample;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
 
-import org.eclipse.microprofile.health.HealthCheck;
-import org.eclipse.microprofile.health.HealthCheckResponse;
-import org.eclipse.microprofile.health.Readiness;
+@Path("/resource")
+public class SampleResource {
 
-@Readiness
-@ApplicationScoped
-public class StarterReadinessCheck implements HealthCheck {
-
-    private boolean isReady() {
-        // perform readiness checks, e.g. database connection, etc.
-
-        return true;
+    @GET
+    public String getRequest() {
+        return "Hello! Welcome to Openliberty";
     }
-	
-    @Override
-    public HealthCheckResponse call() {
-        boolean up = isReady();
-        return HealthCheckResponse.named(this.getClass().getSimpleName()).state(up).build();
-    }
-    
 }
