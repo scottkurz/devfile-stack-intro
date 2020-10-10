@@ -2,9 +2,8 @@
 /.apt_generated_tests/
 /target/
 
+/.odo/
 .odo\env
 .odo\odo-file-index.json
 
 .vscode/
-
-c:\ydosppa\application-stack-samples\simple-jaxrs\.odo\env

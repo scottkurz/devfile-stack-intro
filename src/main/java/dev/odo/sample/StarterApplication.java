@@ -14,12 +14,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 *******************************************************************************/
 
-package dev.odo.starter;
+/*
+ *  Move this class, originally provided from starter, into same package 
+ *  as Resource used in IT via RESTClient injection for convenience in testing, 
+ *  so MicroShed Testing can introspect the application base path.
+ */
+// package dev.odo.starter;
+package dev.odo.sample;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-@ApplicationPath("/")
+@ApplicationPath("/api")
 public class StarterApplication extends Application {
 
 }
