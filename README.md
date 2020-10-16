@@ -1,3 +1,5 @@
+![](https://github.com/OpenLiberty/open-liberty/blob/master/logos/logo_horizontal_light_navy.png)
+
 # application-stack-intro
 
 This app is a simple but complete JAX-RS sample for use with the Open Liberty application stack. It includes a basic REST API, integration tests, and the MicroProfile Config, Health, and Metrics features.
