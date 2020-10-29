@@ -7,3 +7,9 @@
 .odo\odo-file-index.json
 
 .vscode/
+
+.classpath
+.factorypath
+.project
+.settings/
+
