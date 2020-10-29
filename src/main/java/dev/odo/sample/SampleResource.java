@@ -23,6 +23,6 @@ public class SampleResource {
 
     @GET
     public String getRequest() {
-        return "Hi Mr. Pipeline! Time to devfile";
+        return "Hi Mr. Pipeline! Time to devfile - keep it simple";
     }
 }
