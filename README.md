@@ -30,7 +30,7 @@ This app is a simple but complete JAX-RS sample for use with the Open Liberty ap
 1. Initialize the project with the java-openliberty stack
 
     ```shell
-    odo create java-openliberty my-component
+    odo create my-component
     ```
 
 1. Push the sample application to OpenShift
