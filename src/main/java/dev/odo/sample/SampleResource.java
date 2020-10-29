@@ -21,24 +21,8 @@ import javax.ws.rs.Path;
 @Path("/resource")
 public class SampleResource {
 
-	static { System.out.println
-("SKPIPE: 10-222-20 of class XXXX");}
     @GET
     public String getRequest() {
-    	return m1();
-    }
-    private String m1() {
-    	return m2("xy");
-    }
-    
-    private String m2(String x) {
-	String p = "I=xy";
-
-	int i = 200;
-    System.out.println(x + " " + p + i);
-    System.out.println(i + p);
-    System.out.println(x + " " + p + i);
-
-    return "Hello! Welcome to Open Liberty";
+        return "Hi Mr. Pipeline! ";
     }
 }
