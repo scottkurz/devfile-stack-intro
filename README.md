@@ -20,6 +20,10 @@ This app is a simple but complete JAX-RS sample for use with the Open Liberty ap
 
 ### Getting Started
 
+> It's recommended to use the latest version of OpenShift Do (odo). You can install odo using [these instructions](https://odo.dev/docs/installing-odo/)
+
+1. Perform an `oc login` to your cluster.
+
 1. Clone the application-stack-intro repository
 
     ```shell
@@ -27,7 +31,7 @@ This app is a simple but complete JAX-RS sample for use with the Open Liberty ap
     cd application-stack-intro
     ```
 
-1. Initialize the project with the java-openliberty stack
+1. Create your odo component
 
     ```shell
     odo create my-component
