@@ -1,5 +1,5 @@
 /*******************************************************************************
-Copyright (c) 2020 IBM Corporation and others
+Copyright (c) 2020, 2021 IBM Corporation and others
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,9 +15,7 @@ limitations under the License.
 *******************************************************************************/
 
 /*
- *  Move this class, originally provided from starter, into same package 
- *  as Resource used in IT via RESTClient injection for convenience in testing, 
- *  so MicroShed Testing can introspect the application base path.
+ *  Move this class, originally provided from starter, into same package.
  */
 // package dev.odo.starter;
 package dev.odo.sample;
