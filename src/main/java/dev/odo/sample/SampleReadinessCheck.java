@@ -1,5 +1,5 @@
 /*******************************************************************************
-Copyright (c) 2020 IBM Corporation and others
+Copyright (c) 2020, 2021 IBM Corporation and others
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ public class SampleReadinessCheck implements HealthCheck {
     @Override
     public HealthCheckResponse call() {
         boolean up = isReady();
-        return HealthCheckResponse.named(this.getClass().getSimpleName()).state(up).build();
+        return HealthCheckResponse.named(this.getClass().getSimpleName()).status(up).build();
     }
     
 }
