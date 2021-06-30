@@ -1,0 +1,80 @@
+/*
+ * Copyright (c) 2021 IBM Corporation and others
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+group = 'dev.odo.java-openliberty.samples'
+description = 'OpenLiberty Application Stack intro built with Gradle'
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'war'
+apply plugin: 'liberty'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+compileJava.options.encoding = 'UTF-8'
+
+dependencies {
+    providedCompile 'org.eclipse.microprofile:microprofile:4.0.1'   
+    providedCompile 'jakarta.platform:jakarta.jakartaee-api:8.0.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.6.2'
+    testImplementation 'io.rest-assured:rest-assured:4.2.0'
+    testImplementation 'org.apache.cxf:cxf-rt-rs-client:3.3.6'
+    testImplementation 'org.slf4j:slf4j-log4j12:1.7.29'
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'io.openliberty.tools:liberty-gradle-plugin:3.2'
+    }
+}
+
+liberty {
+    server {
+        mergeServerEnv = true
+        stripVersion = true
+    }
+}
+
+ext  {
+    liberty.server.var.'default.http.port' = '9080'
+    liberty.server.var.'project.name' = project.name
+    liberty.server.var.'app.path' = 'api'
+}
+
+test {
+    useJUnitPlatform()
+
+    reports.html.destination = file("$buildDir/reports/unit")
+    reports.junitXml.destination = file("$buildDir/test-results/unit")
+    testLogging {
+            displayGranularity 1
+            showStandardStreams = true
+            showStackTraces = true
+            exceptionFormat = 'full'
+            events 'PASSED', 'FAILED', 'SKIPPED'
+    }
+
+    systemProperty 'http.port', liberty.server.var.'default.http.port'
+    systemProperty 'app.path',  liberty.server.var.'app.path'
+}
+
+test.dependsOn 'libertyStart'
+clean.dependsOn 'libertyStop'
+
