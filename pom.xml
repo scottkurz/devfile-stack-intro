@@ -33,7 +33,7 @@
         <version.maven-compiler-plugin>3.8.1</version.maven-compiler-plugin>
         <version.maven-surefire-plugin>3.0.0-M1</version.maven-surefire-plugin>
         <version.maven-failsafe-plugin>3.0.0-M1</version.maven-failsafe-plugin>
-        <version.liberty-maven-plugin>3.3.4</version.liberty-maven-plugin>
+        <version.liberty-maven-plugin>3.4</version.liberty-maven-plugin>
         <liberty.bootstrap.project.name>${project.artifactId}</liberty.bootstrap.project.name>
         <liberty.var.default.http.port>9080</liberty.var.default.http.port>
         <liberty.var.default.https.port>9443</liberty.var.default.https.port>
@@ -59,7 +59,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.6.2</version>
+            <version>5.7.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -71,7 +71,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.29</version>
+            <version>1.7.31</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
