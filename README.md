@@ -14,7 +14,7 @@
 
 [![License](https://img.shields.io/badge/License-ASL%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-# application-stack-intro
+# devfile-stack-intro
 
 This app is a simple but complete JAX-RS sample for use with the Open Liberty application stack. It includes a basic REST API, integration tests, and the MicroProfile Config, Health, and Metrics features.
 
@@ -24,11 +24,11 @@ This app is a simple but complete JAX-RS sample for use with the Open Liberty ap
 
 1. Perform an `oc login` to your cluster.
 
-1. Clone the application-stack-intro repository
+1. Clone the devfile-stack-intro repository
 
     ```shell
-    git clone git@github.com:OpenLiberty/application-stack-intro.git
-    cd application-stack-intro
+    git clone git@github.com:OpenLiberty/devfile-stack-intro.git
+    cd devfile-stack-intro
     ```
 
 1. Create your odo component
@@ -48,6 +48,6 @@ This app is a simple but complete JAX-RS sample for use with the Open Liberty ap
     odo log -f
     ```
 
-For more details on using the Open Liberty application-stack, check out https://github.com/OpenLiberty/application-stack
+For more details on using the Open Liberty devfile stack, check out https://github.com/OpenLiberty/devfile-stack
 
 For more details on using odo, check out https://odo.dev
