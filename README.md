@@ -31,6 +31,7 @@ This app is a simple but complete JAX-RS sample for use with the Open Liberty ap
     cd devfile-stack-intro
     ```
 
+
 1. Create your odo component
 
     ```shell
