@@ -1,0 +1,5 @@
+gid = ${project.groupId}
+aid = ${project.artifactId}
+aid = ${project.artifactId}
+gid = ${project.groupId}
+

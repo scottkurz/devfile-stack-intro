@@ -1,0 +1,8 @@
+byebye
+
+aid = ${project.artifactId}
+bid = ${project.artifactId}
+cid = ${project.artifactId}
+gid = ${project.groupId}
+
+yo

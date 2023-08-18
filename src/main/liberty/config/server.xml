@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
  Copyright (c) 2021 IBM Corporation and others
 
@@ -12,26 +13,28 @@
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
--->
-<server description="${project.name}">
+--><server description="${project.name}">
+
+    <!--The Liberty Maven Plugin has generated Liberty features necessary for your application in configDropins/overrides/generated-features.xml-->
 
     <featureManager>
+        <!--
         <feature>cdi-2.0 </feature>
         <feature>jaxrs-2.1</feature>
         <feature>mpMetrics-3.0</feature>
         <feature>mpHealth-3.1</feature>
         <feature>mpConfig-2.0</feature>
+        -->
     </featureManager>
 
-    <httpEndpoint host="*" httpPort="9080"
-        httpsPort="9443" id="defaultHttpEndpoint"/>
+    <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
 
-    <webApplication contextRoot="/" location="${project.name}.war" />
+    <webApplication contextRroot="/" location="${project.name}.war"/>
 
     <!--Automatically expand WAR files and EAR files -->
     <applicationManager autoExpand="true"/>
 
     <!--Default SSL configuration enables trust for default certificates from the Java runtime -->
-    <ssl id="defaultSSLConfig" trustDefaultCerts="true" />
+    <ssl id="defaultSSLConfig" trustDefaultCerts="true"/>
     
 </server>

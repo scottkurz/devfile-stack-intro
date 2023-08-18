@@ -29,16 +29,36 @@
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.maven-war-plugin>3.3.1</version.maven-war-plugin>
+        <version.maven-war-plugin>3.4.0</version.maven-war-plugin>
         <version.maven-compiler-plugin>3.8.1</version.maven-compiler-plugin>
         <version.maven-surefire-plugin>3.0.0-M1</version.maven-surefire-plugin>
         <version.maven-failsafe-plugin>3.0.0-M1</version.maven-failsafe-plugin>
-        <version.liberty-maven-plugin>3.7.1</version.liberty-maven-plugin>
+        <!--
+        <version.liberty-maven-plugin>3.8.3-write-war-on-shutdown</version.liberty-maven-plugin>
+        <version.liberty-maven-plugin>3.8.2</version.liberty-maven-plugin>
+        <version.liberty-maven-plugin>3.8.3-1572-fix</version.liberty-maven-plugin>
+        -->
+        <version.liberty-maven-plugin>3.8.3-exploded</version.liberty-maven-plugin>
         <liberty.bootstrap.project.name>${project.artifactId}</liberty.bootstrap.project.name>
         <liberty.var.default.http.port>9080</liberty.var.default.http.port>
         <liberty.var.default.https.port>9443</liberty.var.default.https.port>
         <liberty.var.app.path>api</liberty.var.app.path>
     </properties>
+
+    <pluginRepositories>
+        <!-- Configure Sonatype OSS Maven snapshots repository -->
+        <pluginRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencies>
         <!-- Aggregate APIs -->
@@ -65,7 +85,7 @@
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-rs-client</artifactId>
-            <version>3.3.6</version>
+            <version>3.3.5</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -74,14 +94,92 @@
             <version>1.7.32</version>
             <scope>test</scope>
         </dependency>
+
+        <!--
+        <dependency>
+            <groupId>net.wasdev.wlp.sample</groupId>
+            <artifactId>ferret</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+        -->
+
+        <!--
+        <dependency>
+    <groupId>com.hazelcast</groupId>
+                <artifactId>hazelcast</artifactId>
+    <version>5.3.1</version>
+        </dependency>
+        -->
+
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
+    <resources>
+      <resource>
+        <directory>C:\ydosppa\application-stack-intro\src\main\resources</directory>
+      </resource>
+      <resource>
+        <directory>C:\ydosppa\application-stack-intro\src\main\resfilt</directory>
+        <filtering>true</filtering>
+      </resource>
+      <resource>
+        <directory>C:\ydosppa\application-stack-intro\src\main\resf2</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>${version.maven-war-plugin}</version>
+                    			<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<packagingExcludes>pom.xml</packagingExcludes>
+					<!-- Overlay configuration start
+					<overlays> 
+						<overlay> 
+						</overlay> 
+					</overlays> 
+					Overlay configuration end -->
+
+					<!-- Filtered directory start
+					Filtered directory end -->
+					<webResources> 
+						<resource> 
+                            <directory>src/main/resources2</directory> 
+						</resource> 
+					</webResources> 
+
+					<filteringDeploymentDescriptors>false</filteringDeploymentDescriptors>
+				</configuration>
+                    <!--
+                <configuration>
+                    <overlays> 
+                        <overlay/>
+                    </overlays> 
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
+                       <outdatedCheckPath>WEB-INF/classes</outdatedCheckPath>
+                       <webResources> 
+                         <resource> 
+                           <directory>src/main/webapp</directory> 
+                           <filtering>true</filtering> 
+                         </resource> 
+                         <resource> 
+                           <directory>src/main/webres</directory> 
+                         </resource>
+                         <resource> 
+                           <directory>src/main/webres2</directory> 
+                         </resource>
+                         <resource> 
+                           <directory>src/main/webres3</directory> 
+                           <filtering>true</filtering> 
+                         </resource>
+                     </webResources> 
+                </configuration>
+                    -->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -98,6 +196,7 @@
                     <!-- Extra time within container -->
                     <serverStartTimeout>360</serverStartTimeout>
                     <stripVersion>true</stripVersion>
+                    <appsDirectory>apps</appsDirectory>
                 </configuration>
             </plugin>
             <!-- Plugin to run unit tests -->

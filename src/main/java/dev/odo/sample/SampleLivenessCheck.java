@@ -32,6 +32,9 @@ public class SampleLivenessCheck implements HealthCheck {
         return true;
     }
 	
+
+    private javax.transaction.UserTransaction ut;
+
     @Override
     public HealthCheckResponse call() {
         boolean up = isAlive();

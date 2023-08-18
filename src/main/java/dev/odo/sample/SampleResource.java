@@ -21,8 +21,9 @@ import javax.ws.rs.Path;
 @Path("/resource")
 public class SampleResource {
 
+    static { System.out.println("SKSKSKSKSKSKSK: Running with patch developed 8-9-23 of class PPPPP");}
     @GET
     public String getRequest() {
-        return "Hello! Welcome to Open Liberty";
+        return "Hiya there! Welcome to Open Liberty";
     }
 }
